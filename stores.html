@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a Store — beYon Laboratory-Grown Diamond Jewellery</title>
+  <meta name="description" content="Visit a beYon store in Mumbai, Bengaluru, Delhi NCR, Hyderabad, Chennai or Pune. Try every cut on, book an appointment, or just come in for coffee.">
+  <meta name="theme-color" content="#0a0a0c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="curtain" id="curtain" aria-hidden="true"></div>
+  <header id="site-header"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span>/</span><span>Find a store</span>
+        </nav>
+        <h1 data-split>Come play</h1>
+        <p class="lede" data-reveal data-delay="200" style="margin-top:1.3rem">
+          Six cities, one cut bar. Try all twelve shapes on your own hand — and yes, the coffee is free.
+        </p>
+      </div>
+    </section>
+
+    <section class="section--tight">
+      <div class="container">
+        <div class="field" style="max-width:420px" data-reveal>
+          <label for="storeSearch">Search by city or neighbourhood</label>
+          <input id="storeSearch" type="search" placeholder="Try “Bengaluru” or “BKC”">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="split-3" id="storeGrid"></div>
+        <p class="empty-state" id="storeEmpty" hidden>No store there yet — but next-day delivery probably reaches you.</p>
+      </div>
+    </section>
+
+    <section class="section section--light" id="contact">
+      <div class="container split-2" style="align-items:start">
+        <div>
+          <p class="kicker" data-reveal>Book an appointment</p>
+          <h2 data-split>One hour, <em class="serif-italic">your</em> hand</h2>
+          <p class="lede" data-reveal data-delay="140" style="margin-top:1.2rem">
+            A stylist, a tray of every cut, and no pressure to buy anything. Available in store or over video.
+          </p>
+          <div class="timeline" style="margin-top:2.2rem">
+            <div class="timeline__item" data-reveal>
+              <span>Call us</span>
+              <h3>1800 · 266 · 0123</h3>
+              <p>Monday to Sunday, 9 AM – 9 PM IST.</p>
+            </div>
+            <div class="timeline__item" data-reveal data-delay="90">
+              <span>Write to us</span>
+              <h3>care@beyon.co.in</h3>
+              <p>We answer within one working day, usually sooner.</p>
+            </div>
+          </div>
+        </div>
+        <form class="info-card" data-demo-form data-reveal style="gap:1.4rem">
+          <div class="field">
+            <label for="cName">Your name</label>
+            <input id="cName" type="text" required placeholder="Full name">
+          </div>
+          <div class="field">
+            <label for="cPhone">Phone</label>
+            <input id="cPhone" type="tel" required placeholder="+91 00000 00000">
+          </div>
+          <div class="field">
+            <label for="cStore">Preferred store</label>
+            <select id="cStore" required>
+              <option value="">Select a store</option>
+              <option>Mumbai · Jio World Drive</option>
+              <option>Bengaluru · Indiranagar</option>
+              <option>Delhi NCR · DLF Promenade</option>
+              <option>Hyderabad · Jubilee Hills</option>
+              <option>Chennai · Express Avenue</option>
+              <option>Video appointment</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cNote">What are you looking for?</label>
+            <textarea id="cNote" rows="3" placeholder="A marquise solitaire, or just browsing"></textarea>
+          </div>
+          <button class="btn btn-dark" type="submit"><span>Request appointment</span></button>
+          <p class="form-success">Request received — we will call to confirm your slot.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="banner">
+      <span class="media"><img src="https://images.unsplash.com/photo-1600721391689-2564bb8055de?auto=format&fit=crop&w=1600&q=80" alt="Model wearing layered beYon neckwear" loading="lazy" data-parallax="70"></span>
+      <div class="banner__body">
+        <p class="kicker kicker--center" data-reveal>Or shop from the sofa</p>
+        <h2 data-split>Next day, in metros</h2>
+        <p class="lede" data-reveal data-delay="120" style="text-align:center">Order before 12 PM and it arrives tomorrow — insured, hallmarked and certified.</p>
+        <a class="btn btn-primary" href="jewellery.html" data-magnetic data-reveal data-delay="220"><span>Shop all jewellery</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <div id="site-overlays"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

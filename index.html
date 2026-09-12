@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>beYon — Laboratory-Grown Diamond Jewellery | House of Titan</title>
+  <meta name="description" content="beYon brings the brilliance of laboratory-grown diamond jewellery — bold cuts, 9/14/18 KT gold and silver, certified by Titan Company. Next-day delivery in metros.">
+  <meta name="theme-color" content="#0a0a0c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <svg class="preloader__diamond" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M22 34h56L50 84z"/>
+        <path d="M12 34l14-18h48l14 18"/>
+        <path d="M26 16L22 34M74 16l4 18M38 34l12 50M62 34L50 84"/>
+      </svg>
+      <p class="preloader__word">beYon</p>
+      <div class="preloader__bar"><span></span></div>
+      <p class="preloader__count">0%</p>
+    </div>
+  </div>
+  <div class="curtain" id="curtain" aria-hidden="true"></div>
+
+  <header id="site-header"></header>
+
+  <main>
+    <!-- Hero ------------------------------------------------ -->
+    <section class="hero">
+      <div class="hero__aura" aria-hidden="true"></div>
+      <div class="hero__grain" aria-hidden="true"></div>
+      <canvas class="hero__sparks" id="heroSparks" aria-hidden="true"></canvas>
+
+      <figure class="hero__float hero__float--1" data-depth="0.06" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?auto=format&fit=crop&w=520&q=80" alt="" loading="eager">
+      </figure>
+      <figure class="hero__float hero__float--2" data-depth="0.1" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=520&q=80" alt="" loading="eager">
+      </figure>
+      <figure class="hero__float hero__float--3" data-depth="0.16" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?auto=format&fit=crop&w=420&q=80" alt="" loading="lazy">
+      </figure>
+      <figure class="hero__float hero__float--4" data-depth="0.13" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1589128777073-263566ae5e4d?auto=format&fit=crop&w=420&q=80" alt="" loading="lazy">
+      </figure>
+
+      <div class="hero__inner">
+        <p class="hero__eyebrow" data-reveal data-delay="250">House of Titan · Laboratory-grown diamonds</p>
+        <h1 data-split data-delay="380">
+          <span class="line">break free.</span>
+          <span class="line"><em>just indulge.</em></span>
+        </h1>
+        <p class="hero__copy" data-reveal data-delay="900">
+          Created with human ingenuity, designed for everyday desire and worn without rules.
+          Diamonds grown, not dug — in cuts that refuse to behave.
+        </p>
+        <div class="hero__actions" data-reveal data-delay="1050">
+          <a class="btn btn-primary" href="jewellery.html" data-magnetic><span>Shop all jewellery</span></a>
+          <a class="btn btn-ghost" href="#cuts"><span>Explore the cuts</span></a>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true"><span>Scroll</span><i></i></div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>beYon rules</span><span>beYon limits</span><span>beYon imagination</span>
+        <span>beYon tradition</span><span>beYon compare</span>
+        <span>beYon rules</span><span>beYon limits</span><span>beYon imagination</span>
+        <span>beYon tradition</span><span>beYon compare</span>
+      </div>
+    </div>
+
+    <!-- The Selection -------------------------------------- -->
+    <section class="section" id="selection">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker" data-reveal>The selection</p>
+            <h2 data-split>Pick a place to <em class="serif-italic gold-text">start</em></h2>
+          </div>
+          <a class="link-arrow" href="jewellery.html" data-reveal="right">All jewellery
+            <svg viewBox="0 0 24 10"><path d="M0 5h22M17 1l5 4-5 4"/></svg>
+          </a>
+        </div>
+        <div class="bento" id="selectionGrid"></div>
+      </div>
+    </section>
+
+    <!-- Manifesto ------------------------------------------ -->
+    <section class="section" id="story">
+      <div class="container manifesto">
+        <div class="manifesto__text">
+          <p class="kicker" data-reveal>Not as tradition dictates</p>
+          <h2 data-reveal>But as <span class="serif-italic gold-text">desire</span> compels</h2>
+          <p class="lede reveal-words" style="margin-top:1.6rem">
+            We did not set out to make heirlooms that sit in a locker. We grow diamonds with the same carbon,
+            the same hardness and the same fire as mined stones, then hand them to cutters who were told to
+            forget the rulebook. What comes back is jewellery you actually wear on a Tuesday.
+          </p>
+          <div class="stagger" style="display:grid;gap:1rem;margin-top:2.2rem;max-width:46ch">
+            <p style="display:flex;gap:0.9rem;align-items:baseline"><span style="color:var(--gold)">◆</span> Grown in weeks, graded like any diamond, priced without the dig.</p>
+            <p style="display:flex;gap:0.9rem;align-items:baseline"><span style="color:var(--gold)">◆</span> Authenticity certificate by Titan Company with a unique SKU ID.</p>
+            <p style="display:flex;gap:0.9rem;align-items:baseline"><span style="color:var(--gold)">◆</span> BIS/HUID hallmarked 9, 14 and 18 KT gold, plus 925 silver.</p>
+          </div>
+          <a class="link-arrow" href="facts.html" style="margin-top:2.4rem" data-reveal>Get to know us
+            <svg viewBox="0 0 24 10"><path d="M0 5h22M17 1l5 4-5 4"/></svg>
+          </a>
+        </div>
+        <div class="manifesto__media" data-reveal="scale">
+          <span class="media"><img src="https://images.unsplash.com/photo-1620656798579-1984d9e87df7?auto=format&fit=crop&w=900&q=80" alt="Model wearing beYon laboratory-grown diamond jewellery" loading="lazy" data-parallax="28"></span>
+          <span class="media media--float"><img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=600&q=80" alt="Laboratory-grown diamond ring close up" loading="lazy"></span>
+          <span class="manifesto__badge">Grown<br>not dug</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop the cuts (scroll-driven rail) ----------------- -->
+    <section class="cuts" id="cuts">
+      <div class="cuts__scroller" id="cutsScroller">
+        <div class="cuts__sticky">
+          <div class="cuts__head">
+            <div>
+              <p class="kicker">Shop the cuts</p>
+              <h2>Twelve ways to <span class="serif-italic gold-text">misbehave</span></h2>
+              <p class="lede" style="margin-top:1rem;max-width:48ch">
+                We gave laboratory-grown diamonds room to stretch, curve and break away from the usual forms.
+              </p>
+            </div>
+            <div class="cuts__progress" id="cutsProgress">
+              <span>Now showing</span>
+              <i></i>
+              <strong id="cutsActive" style="font-family:var(--display);font-weight:400;letter-spacing:0;text-transform:none;font-size:1.1rem;color:var(--ivory)">Baguette</strong>
+            </div>
+          </div>
+          <div class="cuts__rail" id="cutsRail"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best sellers -------------------------------------- -->
+    <section class="section" id="bestsellers">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker" data-reveal>Selling fast</p>
+            <h2 data-split>Made to spark <em class="serif-italic gold-text">desire</em></h2>
+          </div>
+          <div class="rail-nav" data-reveal="right">
+            <button type="button" data-rail-prev aria-label="Previous"><svg viewBox="0 0 24 10"><path d="M24 5H2M7 1L2 5l5 4"/></svg></button>
+            <button type="button" data-rail-next aria-label="Next"><svg viewBox="0 0 24 10"><path d="M0 5h22M17 1l5 4-5 4"/></svg></button>
+          </div>
+        </div>
+        <div class="rail-wrap">
+          <div class="rail" id="bestRail" data-rail></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats --------------------------------------------- -->
+    <section class="section--tight">
+      <div class="container">
+        <div class="stats" data-reveal>
+          <div class="stat"><b><span data-count="58">0</span></b><span>Facets on a round brilliant</span></div>
+          <div class="stat"><b><span data-count="12">0</span></b><span>Signature cuts in house</span></div>
+          <div class="stat"><b><span data-count="24" data-suffix="h">0</span></b><span>Metro delivery promise</span></div>
+          <div class="stat"><b><span data-count="100" data-suffix="%">0</span></b><span>Carbon, no compromise</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collections stack -------------------------------- -->
+    <section class="section" id="collections">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="kicker kicker--center" data-reveal>The collections</p>
+          <h2 data-split>Go on. <em class="serif-italic gold-text">Indulge.</em></h2>
+        </div>
+        <div class="stack" id="collectionStack"></div>
+      </div>
+    </section>
+
+    <!-- Compare ----------------------------------------- -->
+    <section class="section section--light" id="compare">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker" data-reveal>beYon facts</p>
+            <h2 data-split>Same carbon. <em class="serif-italic">Different origin.</em></h2>
+          </div>
+          <a class="link-arrow" href="facts.html" data-reveal="right">Read the facts
+            <svg viewBox="0 0 24 10"><path d="M0 5h22M17 1l5 4-5 4"/></svg>
+          </a>
+        </div>
+        <div class="compare">
+          <div class="compare__col compare__col--hero" data-reveal>
+            <h4>Laboratory-grown diamond</h4>
+            <dl>
+              <div><dt>Hardness (Mohs)</dt><dd>10 · identical</dd><div class="meter" style="--v:1"><i></i></div></div>
+              <div><dt>Brilliance &amp; fire</dt><dd>Identical refractive index</dd><div class="meter" style="--v:1"><i style="--d:120ms"></i></div></div>
+              <div><dt>Carat for your budget</dt><dd>Up to 3× larger</dd><div class="meter" style="--v:1"><i style="--d:240ms"></i></div></div>
+              <div><dt>Earth moved per carat</dt><dd>None</dd><div class="meter" style="--v:.08"><i style="--d:360ms"></i></div></div>
+            </dl>
+          </div>
+          <div class="compare__col" data-reveal data-delay="90">
+            <h4>Mined diamond</h4>
+            <dl>
+              <div><dt>Hardness (Mohs)</dt><dd>10</dd><div class="meter" style="--v:1"><i></i></div></div>
+              <div><dt>Brilliance &amp; fire</dt><dd>Identical refractive index</dd><div class="meter" style="--v:1"><i style="--d:120ms"></i></div></div>
+              <div><dt>Carat for your budget</dt><dd>Baseline</dd><div class="meter" style="--v:.38"><i style="--d:240ms"></i></div></div>
+              <div><dt>Earth moved per carat</dt><dd>Roughly 100 sq ft</dd><div class="meter" style="--v:1"><i style="--d:360ms"></i></div></div>
+            </dl>
+          </div>
+          <div class="compare__col" data-reveal data-delay="180">
+            <h4>CZ / moissanite</h4>
+            <dl>
+              <div><dt>Hardness (Mohs)</dt><dd>8 – 9.25 · softer</dd><div class="meter" style="--v:.62"><i></i></div></div>
+              <div><dt>Brilliance &amp; fire</dt><dd>Simulant, not diamond</dd><div class="meter" style="--v:.45"><i style="--d:120ms"></i></div></div>
+              <div><dt>Carat for your budget</dt><dd>Cheapest</dd><div class="meter" style="--v:1"><i style="--d:240ms"></i></div></div>
+              <div><dt>Tests as diamond</dt><dd>No</dd><div class="meter" style="--v:.05"><i style="--d:360ms"></i></div></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials ------------------------------------ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="kicker kicker--center" data-reveal>Worn without rules</p>
+        </div>
+        <div class="quotes" id="quotes"></div>
+        <div class="quote-dots" id="quoteDots"></div>
+      </div>
+    </section>
+
+    <!-- Store banner ----------------------------------- -->
+    <section class="banner">
+      <span class="media"><img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?auto=format&fit=crop&w=1600&q=80" alt="Trying on beYon bracelets and bangles" loading="lazy" data-parallax="70"></span>
+      <div class="banner__body">
+        <p class="kicker kicker--center" data-reveal>Visit the store</p>
+        <h2 data-split>Drop by to play with jewellery</h2>
+        <p class="lede" data-reveal data-delay="120" style="text-align:center">Or honestly, just come in for a cup of coffee. Try every cut on, twice.</p>
+        <a class="btn btn-primary" href="stores.html" data-magnetic data-reveal data-delay="220"><span>Find a store</span></a>
+      </div>
+    </section>
+
+    <!-- Social ---------------------------------------- -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker" data-reveal>@beyon.india</p>
+            <h2 data-split>Join us on <em class="serif-italic gold-text">social</em></h2>
+          </div>
+          <a class="link-arrow" href="#" data-reveal="right">Follow along
+            <svg viewBox="0 0 24 10"><path d="M0 5h22M17 1l5 4-5 4"/></svg>
+          </a>
+        </div>
+        <div class="social-grid" id="socialGrid" data-reveal></div>
+      </div>
+    </section>
+
+    <!-- FAQ + newsletter ----------------------------- -->
+    <section class="section" id="faq">
+      <div class="container split-2" style="align-items:start">
+        <div>
+          <p class="kicker" data-reveal>Frequently asked</p>
+          <h2 data-split>Straight <em class="serif-italic gold-text">answers</em></h2>
+          <p class="lede" data-reveal data-delay="140" style="margin-top:1.2rem">
+            Everything people ask before their first laboratory-grown diamond — answered without the sales pitch.
+          </p>
+          <a class="link-arrow" href="facts.html#faq" style="margin-top:2rem" data-reveal>All help &amp; FAQs
+            <svg viewBox="0 0 24 10"><path d="M0 5h22M17 1l5 4-5 4"/></svg>
+          </a>
+        </div>
+        <div class="faq" id="faqList"></div>
+      </div>
+    </section>
+
+    <section class="section--tight">
+      <div class="container">
+        <div class="newsletter" data-reveal="scale">
+          <p class="kicker kicker--center">Gift with beYon</p>
+          <h2>First to know, first to <span class="serif-italic gold-text">wear</span></h2>
+          <p class="lede" style="margin:1.1rem auto 0;text-align:center">
+            Drops, cut releases and store openings. No noise, no daily mail.
+          </p>
+          <form class="newsletter__form" data-demo-form>
+            <div class="field">
+              <label for="nlEmail">Email address</label>
+              <input id="nlEmail" type="email" required placeholder="you@example.com">
+            </div>
+            <button class="btn btn-primary" type="submit" style="align-self:end"><span>Sign me up</span></button>
+            <p class="form-success" style="flex:1 0 100%;text-align:center">You are on the list — check your inbox.</p>
+          </form>
+          <p class="newsletter__note">By signing up you agree to our privacy notice. Unsubscribe any time.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <div id="site-overlays"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

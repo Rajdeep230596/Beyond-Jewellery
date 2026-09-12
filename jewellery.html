@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Jewellery — beYon Laboratory-Grown Diamonds</title>
+  <meta name="description" content="Shop every beYon piece — rings, earrings, pendants, bracelets, bangles, mangalsutra and solitaires in laboratory-grown diamonds set in 9/14/18 KT gold and silver.">
+  <meta name="theme-color" content="#0a0a0c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="curtain" id="curtain" aria-hidden="true"></div>
+  <header id="site-header"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span>/</span><span>All jewellery</span>
+        </nav>
+        <h1 data-split>All jewellery</h1>
+        <p class="lede" data-reveal data-delay="200" style="margin-top:1.3rem">
+          Every cut, every karat, every mood. Filter it down or scroll until something stops you.
+        </p>
+      </div>
+    </section>
+
+    <section class="section--tight">
+      <div class="container">
+        <div class="filter-bar">
+          <div style="display:grid;gap:0.75rem">
+            <div class="chips" data-chips="cat" aria-label="Filter by category"></div>
+            <div class="chips" data-chips="cut" aria-label="Filter by cut"></div>
+            <div class="chips" data-chips="karat" aria-label="Filter by metal"></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap">
+            <p class="result-count" id="resultCount">24 pieces</p>
+            <button class="chip" type="button" id="clearFilters"><span>Clear all</span></button>
+            <div class="field" style="min-width:170px">
+              <label for="sortSelect">Sort by</label>
+              <select id="sortSelect">
+                <option value="featured">Featured</option>
+                <option value="new">Just dropped</option>
+                <option value="price-asc">Price: low to high</option>
+                <option value="price-desc">Price: high to low</option>
+                <option value="rating">Top rated</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+
+        <div style="display:grid;justify-items:center;gap:1.2rem;margin-top:clamp(2.5rem,6vw,5rem);text-align:center">
+          <p class="lede" data-reveal>Not sure which cut suits you? Our stylists will walk you through all twelve, in store or over video.</p>
+          <a class="btn btn-ghost" href="stores.html#contact" data-magnetic data-reveal data-delay="120"><span>Book an appointment</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container split-3">
+        <div class="info-card" data-reveal>
+          <span class="info-card__num">01</span>
+          <h3>Certified, always</h3>
+          <p>Every piece ships with an authenticity certificate by Titan Company carrying a unique SKU ID and full stone details.</p>
+        </div>
+        <div class="info-card" data-reveal data-delay="90">
+          <span class="info-card__num">02</span>
+          <h3>Next-day in metros</h3>
+          <p>Order before 12 PM in a metro city and it arrives tomorrow, insured and signature-required.</p>
+        </div>
+        <div class="info-card" data-reveal data-delay="180">
+          <span class="info-card__num">03</span>
+          <h3>7-day free returns</h3>
+          <p>Unworn, original packaging, no questions. Gold is exchanged at 100%* of the prevailing rate.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <div id="site-overlays"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
