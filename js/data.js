@@ -54,18 +54,18 @@ const PRODUCTS = [
 ];
 
 const CUTS = [
-  { name: "Baguette", note: "Long, linear, architectural", shape: "M28 26h44l-8 48H36z M28 26l6-8h32l6 8", facets: "M40 26v48M52 26v48M64 26v48" },
-  { name: "Cushion", note: "Soft square, endless fire", shape: "M22 34a12 12 0 0 1 12-12h32a12 12 0 0 1 12 12v32a12 12 0 0 1-12 12H34a12 12 0 0 1-12-12z", facets: "M22 34l20 14M78 34L58 48M22 66l20-14M78 66L58 52M42 48h16v4H42z" },
-  { name: "Emerald", note: "Step cut, hall-of-mirrors", shape: "M30 20h40l8 10v40l-8 10H30l-8-10V30z", facets: "M30 20l6 10M70 20l-6 10M30 80l6-10M70 80l-6-10M36 30h28v40H36z" },
-  { name: "Half Moon", note: "Cut clean, wears bold", shape: "M24 62a26 26 0 0 1 52 0z", facets: "M50 36v26M36 44l8 18M64 44l-8 18M24 62h52" },
-  { name: "Heart", note: "Unapologetically romantic", shape: "M50 82C26 64 22 48 22 40a16 16 0 0 1 28-10 16 16 0 0 1 28 10c0 8-4 24-28 42z", facets: "M50 30v52M30 38l20 20M70 38L50 58" },
-  { name: "Hexagon", note: "Six sides of attitude", shape: "M50 18l26 16v32L50 82 24 66V34z", facets: "M50 18v64M24 34l52 32M76 34L24 66" },
-  { name: "Kite", note: "Sharp, off-kilter, alive", shape: "M50 16l26 30-26 38-26-38z", facets: "M50 16v68M24 46h52" },
-  { name: "Marquise", note: "Elongating, theatrical", shape: "M50 16c16 12 24 24 24 34s-8 22-24 34c-16-12-24-24-24-34s8-22 24-34z", facets: "M50 16v68M26 50h48" },
-  { name: "Oval", note: "Classic with more surface", shape: "M50 18c15 0 26 14 26 32S65 82 50 82 24 68 24 50 35 18 50 18z", facets: "M50 18v64M24 50h52M34 30l32 40M66 30L34 70" },
-  { name: "Pear", note: "Half brilliant, half marquise", shape: "M50 16c14 12 24 24 24 38a24 24 0 0 1-48 0c0-14 10-26 24-38z", facets: "M50 16v68M26 54h48M32 32l36 36" },
-  { name: "Princess", note: "Square face, brilliant heart", shape: "M24 24h52v52H24z", facets: "M24 24l26 26M76 24L50 50M24 76l26-26M76 76L50 50" },
-  { name: "Round", note: "58 facets of pure return", shape: "M50 18a32 32 0 1 1 0 64 32 32 0 0 1 0-64z", facets: "M50 18v64M18 50h64M27 27l46 46M73 27L27 73M34 34h32v32H34z" },
+  { name: "Baguette", note: "Long, linear, architectural", image: "assets/cuts/baguette.png?v=3)" },
+  { name: "Cushion", note: "Soft square, endless fire", image: "assets/cuts/cushion.png?v=3)" },
+  { name: "Emerald", note: "Step cut, hall-of-mirrors", image: "assets/cuts/emerald.png?v=3)" },
+  { name: "Half Moon", note: "Cut clean, wears bold", image: "assets/cuts/half-moon.png?v=3)" },
+  { name: "Heart", note: "Unapologetically romantic", image: "assets/cuts/heart.png?v=3)" },
+  { name: "Hexagon", note: "Six sides of attitude", image: "assets/cuts/hexagon.png?v=3)" },
+  { name: "Kite", note: "Sharp, off-kilter, alive", image: "assets/cuts/kite.png?v=3)" },
+  { name: "Marquise", note: "Elongating, theatrical", image: "assets/cuts/marquise.png?v=3)" },
+  { name: "Oval", note: "Classic with more surface", image: "assets/cuts/oval.png?v=3)" },
+  { name: "Pear", note: "Half brilliant, half marquise", image: "assets/cuts/pear.png?v=3)" },
+  { name: "Princess", note: "Square face, brilliant heart", image: "assets/cuts/princess.png?v=3)" },
+  { name: "Round", note: "58 facets of pure return", image: "assets/cuts/round.png?v=3)" },
 ];
 
 const COLLECTIONS = [

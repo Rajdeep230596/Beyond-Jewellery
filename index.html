@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>beYon — Laboratory-Grown Diamond Jewellery | House of Titan</title>
   <meta name="description" content="beYon brings the brilliance of laboratory-grown diamond jewellery — bold cuts, 9/14/18 KT gold and silver, certified by Titan Company. Next-day delivery in metros.">
-  <meta name="theme-color" content="#0a0a0c">
+  <meta name="theme-color" content="#f3eadc">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/tempting" rel="stylesheet">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -31,41 +32,35 @@
 
   <main>
     <!-- Hero ------------------------------------------------ -->
-    <section class="hero">
-      <div class="hero__aura" aria-hidden="true"></div>
-      <div class="hero__grain" aria-hidden="true"></div>
-      <canvas class="hero__sparks" id="heroSparks" aria-hidden="true"></canvas>
-
-      <figure class="hero__float hero__float--1" data-depth="0.06" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?auto=format&fit=crop&w=520&q=80" alt="" loading="eager">
-      </figure>
-      <figure class="hero__float hero__float--2" data-depth="0.1" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=520&q=80" alt="" loading="eager">
-      </figure>
-      <figure class="hero__float hero__float--3" data-depth="0.16" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?auto=format&fit=crop&w=420&q=80" alt="" loading="lazy">
-      </figure>
-      <figure class="hero__float hero__float--4" data-depth="0.13" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1589128777073-263566ae5e4d?auto=format&fit=crop&w=420&q=80" alt="" loading="lazy">
-      </figure>
-
-      <div class="hero__inner">
-        <p class="hero__eyebrow" data-reveal data-delay="250">House of Titan · Laboratory-grown diamonds</p>
-        <h1 data-split data-delay="380">
-          <span class="line">break free.</span>
-          <span class="line"><em>just indulge.</em></span>
-        </h1>
-        <p class="hero__copy" data-reveal data-delay="900">
-          Created with human ingenuity, designed for everyday desire and worn without rules.
-          Diamonds grown, not dug — in cuts that refuse to behave.
-        </p>
-        <div class="hero__actions" data-reveal data-delay="1050">
-          <a class="btn btn-primary" href="jewellery.html" data-magnetic><span>Shop all jewellery</span></a>
-          <a class="btn btn-ghost" href="#cuts"><span>Explore the cuts</span></a>
+    <section class="hero" id="heroScrolly">
+      <div class="hero__sticky">
+        <div class="hero__stage" aria-hidden="true">
+          <video id="heroVideo" muted playsinline webkit-playsinline preload="auto" disablepictureinpicture>
+            <source src="assets/hero.mp4?v=3" type="video/mp4">
+          </video>
         </div>
-      </div>
+        <div class="hero__veil" aria-hidden="true"></div>
+        <div class="hero__grain" aria-hidden="true"></div>
+        <canvas class="hero__sparks" id="heroSparks" aria-hidden="true"></canvas>
 
-      <div class="hero__scroll" aria-hidden="true"><span>Scroll</span><i></i></div>
+        <div class="hero__inner">
+          <p class="hero-line hero__eyebrow" data-at="0.08">House of Titan · Laboratory-grown diamonds</p>
+          <h1>
+            <span class="hero-line hero__title-line" data-at="0.24">break free.</span>
+            <span class="hero-line hero__title-line" data-at="0.42"><em>just indulge.</em></span>
+          </h1>
+          <p class="hero-line hero__copy" data-at="0.60">
+            Created with human ingenuity, designed for everyday desire and worn without rules.
+            Diamonds grown, not dug — in cuts that refuse to behave.
+          </p>
+          <div class="hero-line hero__actions" data-at="0.78">
+            <a class="btn btn-primary" href="jewellery.html" data-magnetic><span>Shop all jewellery</span></a>
+            <a class="btn btn-ghost" href="#cuts"><span>Explore the cuts</span></a>
+          </div>
+        </div>
+
+        <div class="hero__scroll" aria-hidden="true"><span>Scroll</span><i></i></div>
+      </div>
     </section>
 
     <div class="marquee" aria-hidden="true">
@@ -121,25 +116,59 @@
       </div>
     </section>
 
-    <!-- Shop the cuts (scroll-driven rail) ----------------- -->
-    <section class="cuts" id="cuts">
-      <div class="cuts__scroller" id="cutsScroller">
-        <div class="cuts__sticky">
-          <div class="cuts__head">
-            <div>
-              <p class="kicker">Shop the cuts</p>
-              <h2>Twelve ways to <span class="serif-italic gold-text">misbehave</span></h2>
-              <p class="lede" style="margin-top:1rem;max-width:48ch">
-                We gave laboratory-grown diamonds room to stretch, curve and break away from the usual forms.
-              </p>
-            </div>
-            <div class="cuts__progress" id="cutsProgress">
-              <span>Now showing</span>
-              <i></i>
-              <strong id="cutsActive" style="font-family:var(--display);font-weight:400;letter-spacing:0;text-transform:none;font-size:1.1rem;color:var(--ivory)">Baguette</strong>
-            </div>
-          </div>
-          <div class="cuts__rail" id="cutsRail"></div>
+    <!-- Shop the cuts (rotating setting dial) -------------- -->
+    <section class="cuts" id="cuts" aria-label="Shop the cut">
+      <h2 class="cuts-title">
+        <span>Shop</span>
+        <span>the</span>
+        <span>cut</span>
+      </h2>
+      <div class="cuts-stage" id="cutsStage" tabindex="0" aria-label="Diamond cut selector">
+        <svg class="cuts-path" viewBox="0 0 118 200" overflow="visible" aria-hidden="true">
+          <defs>
+            <g id="cutsBloom">
+              <path d="M0-5.4C1.9-3.7 1.9-1.2 0 0C-1.9-1.2-1.9-3.7 0-5.4z" transform="rotate(0)"/>
+              <path d="M0-5.4C1.9-3.7 1.9-1.2 0 0C-1.9-1.2-1.9-3.7 0-5.4z" transform="rotate(72)"/>
+              <path d="M0-5.4C1.9-3.7 1.9-1.2 0 0C-1.9-1.2-1.9-3.7 0-5.4z" transform="rotate(144)"/>
+              <path d="M0-5.4C1.9-3.7 1.9-1.2 0 0C-1.9-1.2-1.9-3.7 0-5.4z" transform="rotate(216)"/>
+              <path d="M0-5.4C1.9-3.7 1.9-1.2 0 0C-1.9-1.2-1.9-3.7 0-5.4z" transform="rotate(288)"/>
+              <circle r="1.4"/>
+            </g>
+            <g id="cutsLeaf">
+              <path d="M0 0C2.4-5 6.8-6.5 9-2.5C7.1.7 3.4 1.5 0 0z"/>
+            </g>
+          </defs>
+          <path class="cuts-path__vine" d="M100 0 A100 100 0 0 0 100 200"/>
+          <path class="cuts-path__rail" d="M100 6 A94 94 0 0 0 100 194"/>
+          <path class="cuts-path__rail" d="M100 18 A82 82 0 0 0 100 182"/>
+          <path class="cuts-path__vine" d="M100 26 A74 74 0 0 0 100 174"/>
+          <g class="cuts-path__flora">
+            <g transform="translate(50 13.4)"><use href="#cutsBloom" transform="scale(1.15)"/></g>
+            <g transform="translate(13.4 50)"><use href="#cutsLeaf" transform="rotate(-30) scale(1.1)"/></g>
+            <g transform="translate(0 100)"><use href="#cutsBloom" transform="scale(1.3)"/></g>
+            <g transform="translate(13.4 150)"><use href="#cutsLeaf" transform="rotate(30) scale(1.1)"/></g>
+            <g transform="translate(50 186.6)"><use href="#cutsBloom" transform="scale(1.15)"/></g>
+            <g transform="translate(29 29)"><use href="#cutsLeaf" transform="rotate(20) scale(.85)"/></g>
+            <g transform="translate(29 171)"><use href="#cutsLeaf" transform="rotate(-20) scale(.85)"/></g>
+            <g transform="translate(8 78)"><use href="#cutsBloom" transform="scale(.7)"/></g>
+            <g transform="translate(8 122)"><use href="#cutsBloom" transform="scale(.7)"/></g>
+          </g>
+        </svg>
+        <div class="cuts-dial" id="cutsDial"></div>
+        <div class="cuts-band" aria-hidden="true"></div>
+        <svg class="cuts-crown" viewBox="0 0 72 26" aria-hidden="true">
+          <path d="M8 22c2-10 6-16 10-16 3 0 5 6 8 12 2-8 6-16 10-16s8 8 10 16c3-6 5-12 8-12 4 0 8 6 10 16" fill="none" stroke="#c4a36a" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="18" cy="6" r="1.3" fill="#e8d3a8"/>
+          <circle cx="36" cy="6" r="1.3" fill="#e8d3a8"/>
+          <circle cx="54" cy="6" r="1.3" fill="#e8d3a8"/>
+        </svg>
+        <div class="cuts-caption">
+          <p class="kicker">Now setting</p>
+          <h3 id="cutsActive">Baguette</h3>
+          <p id="cutsNote">Long, linear, architectural</p>
+          <a class="link-arrow" id="cutsShop" href="jewellery.html?cut=Baguette">Shop this cut
+            <svg viewBox="0 0 24 10"><path d="M0 5h22M17 1l5 4-5 4"/></svg>
+          </a>
         </div>
       </div>
     </section>

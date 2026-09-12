@@ -66,7 +66,7 @@ const headerHTML = `
     <a class="logo" href="index.html" aria-label="beYon home">
       <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
         <defs><linearGradient id="lm" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#f3dfae"/><stop offset=".55" stop-color="#d8b36a"/><stop offset="1" stop-color="#a8823c"/>
+          <stop offset="0" stop-color="#c49a6c"/><stop offset=".55" stop-color="#8b5a2b"/><stop offset="1" stop-color="#6b3f1f"/>
         </linearGradient></defs>
         <path d="M20 22h24l-12 24z" fill="url(#lm)"/>
         <path d="M15 22l5-6h24l5 6" fill="none" stroke="url(#lm)" stroke-width="2.2" stroke-linejoin="round"/>
@@ -324,17 +324,12 @@ function productCard(p) {
   `;
 }
 
-function cutCardHTML(cut, i) {
+function cutStoneHTML(cut, i) {
+  const amp = ["Princess", "Marquise", "Emerald"].includes(cut.name) ? " cuts-stone--amp" : "";
   return `
-    <article class="cut-card" data-cut-card>
-      <span class="cut-card__num">${String(i + 1).padStart(2, "0")}</span>
-      <svg class="cut-card__shape" viewBox="0 0 100 100" aria-hidden="true">
-        <path class="glow" d="${cut.shape}"/>
-        <path class="facet" d="${cut.facets}"/>
-      </svg>
-      <div class="cut-card__label"><b>${cut.name}</b><span>${cut.note}</span></div>
-      <a href="jewellery.html?cut=${encodeURIComponent(cut.name)}" aria-label="Shop ${cut.name} cut" style="position:absolute;inset:0"></a>
-    </article>
+    <button class="cuts-stone${amp}" type="button" data-cut-index="${i}" aria-label="${cut.name} cut">
+      <img src="${cut.image}" alt="" draggable="false">
+    </button>
   `;
 }
 
@@ -494,6 +489,9 @@ function renderSearch(query) {
 /* ---------- motion engine --------------------------------- */
 function splitText(el) {
   const state = { i: 0 };
+  // Script headings must stay whole words — splitting into characters
+  // breaks the connecting strokes of Tempting.
+  const keepWords = /^H[1-4]$/.test(el.tagName);
   const build = (node) => {
     const frag = document.createDocumentFragment();
     Array.from(node.childNodes).forEach((child) => {
@@ -506,13 +504,18 @@ function splitText(el) {
           }
           const word = document.createElement("span");
           word.className = "word";
-          Array.from(chunk).forEach((ch) => {
-            const c = document.createElement("span");
-            c.className = "char";
-            c.style.setProperty("--i", state.i++);
-            c.textContent = ch;
-            word.appendChild(c);
-          });
+          if (keepWords) {
+            word.style.setProperty("--i", state.i++);
+            word.textContent = chunk;
+          } else {
+            Array.from(chunk).forEach((ch) => {
+              const c = document.createElement("span");
+              c.className = "char";
+              c.style.setProperty("--i", state.i++);
+              c.textContent = ch;
+              word.appendChild(c);
+            });
+          }
           frag.appendChild(word);
         });
       } else if (child.nodeType === Node.ELEMENT_NODE) {
@@ -527,6 +530,7 @@ function splitText(el) {
   el.innerHTML = "";
   el.appendChild(built);
   el.classList.add("split");
+  if (keepWords) el.classList.add("split--words");
 }
 
 function wrapWords(el) {
@@ -645,7 +649,7 @@ function initCursor() {
   };
   requestAnimationFrame(loop);
 
-  const hot = "a, button, .tile, .card, .cut-card, input, select, textarea, [data-magnetic]";
+  const hot = "a, button, .tile, .card, .cuts-stone, input, select, textarea, [data-magnetic]";
   document.addEventListener("mouseover", (e) => {
     if (e.target.closest(hot)) document.body.classList.add("cursor-hot");
   });
@@ -681,6 +685,142 @@ function initTilt() {
   });
 }
 
+function initHeroScrolly() {
+  const section = document.getElementById("heroScrolly");
+  const video = document.getElementById("heroVideo");
+  const lines = [...document.querySelectorAll(".hero-line")];
+  if (!section || !video) return;
+
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
+  video.loop = false;
+  video.preload = "auto";
+  video.disablePictureInPicture = true;
+  video.controls = false;
+
+  if (REDUCED) {
+    lines.forEach((line) => line.classList.add("is-in"));
+    video.loop = true;
+    video.play().catch(() => {});
+    return;
+  }
+
+  let duration = 0;
+  let unlocked = false;
+  let lastLineMask = -1;
+  let raf = 0;
+  const lineAt = lines.map((line) => Number(line.dataset.at || 0));
+
+  const readDuration = () => {
+    const d = video.duration;
+    if (Number.isFinite(d) && d > 0) duration = d;
+  };
+
+  const progressFromScroll = () => {
+    const start = section.getBoundingClientRect().top + window.scrollY;
+    const scrollable = Math.max(1, section.offsetHeight - window.innerHeight);
+    return clamp((window.scrollY - start) / scrollable);
+  };
+
+  const unlock = () => {
+    if (unlocked) return;
+    const play = video.play();
+    if (play && typeof play.then === "function") {
+      play.then(() => {
+        unlocked = true;
+        video.pause();
+      }).catch(() => {});
+    } else {
+      unlocked = true;
+      video.pause();
+    }
+  };
+
+  const seek = (time) => {
+    const t = clamp(time, 0, Math.max(0, duration - 0.04));
+    try {
+      if (typeof video.fastSeek === "function") video.fastSeek(t);
+      else video.currentTime = t;
+    } catch {
+      try { video.currentTime = t; } catch { /* not ready */ }
+    }
+  };
+
+  const playForward = (rate) => {
+    video.playbackRate = clamp(rate, 0.4, 12);
+    if (video.paused) {
+      const play = video.play();
+      if (play && typeof play.then === "function") play.catch(unlock);
+    }
+  };
+
+  const syncVideo = (progress) => {
+    if (duration <= 0) return;
+    const target = progress * duration;
+    const now = video.currentTime || 0;
+    const drift = target - now;
+
+    section.style.setProperty("--hero-scale", (1.08 - progress * 0.08).toFixed(4));
+
+    // Pin the last frames: keep playing until the file actually ends.
+    if (progress >= 0.985) {
+      if (now < duration - 0.08) playForward(Math.min(8, Math.max(2.2, (duration - now) * 2)));
+      else if (!video.paused) video.pause();
+      return;
+    }
+
+    if (drift < -0.12) {
+      seek(target);
+      if (!video.paused) video.pause();
+      return;
+    }
+
+    if (drift > 0.03) {
+      playForward(1 + drift * 4);
+      return;
+    }
+
+    if (!video.paused) video.pause();
+    video.playbackRate = 1;
+  };
+
+  const paintLines = (progress) => {
+    let mask = 0;
+    for (let i = 0; i < lineAt.length; i += 1) {
+      if (progress >= lineAt[i]) mask |= 1 << i;
+    }
+    if (mask === lastLineMask) return;
+    lastLineMask = mask;
+    lines.forEach((line, i) => {
+      line.classList.toggle("is-in", Boolean(mask & (1 << i)));
+    });
+  };
+
+  const tick = () => {
+    const progress = progressFromScroll();
+    section.classList.toggle("is-scrolled", progress > 0.03);
+    paintLines(progress);
+    syncVideo(progress);
+    raf = requestAnimationFrame(tick);
+  };
+
+  video.addEventListener("loadedmetadata", readDuration);
+  video.addEventListener("durationchange", readDuration);
+  video.addEventListener("canplay", readDuration);
+  if (video.readyState >= 1) readDuration();
+
+  window.addEventListener("pointerdown", unlock, { once: true, passive: true });
+  window.addEventListener("touchstart", unlock, { once: true, passive: true });
+  window.addEventListener("wheel", unlock, { once: true, passive: true });
+  window.addEventListener("keydown", unlock, { once: true });
+  video.addEventListener("loadeddata", unlock, { once: true });
+
+  raf = requestAnimationFrame(tick);
+}
+
 function initSparks() {
   const canvas = document.getElementById("heroSparks");
   if (!canvas || REDUCED) return;
@@ -714,13 +854,13 @@ function initSparks() {
       if (st.y < -4) st.y = h + 4;
       const a = (Math.sin(st.p) + 1) / 2;
       ctx.globalAlpha = 0.12 + a * 0.72;
-      ctx.fillStyle = a > 0.72 ? "#f7ecd2" : "#d8b36a";
+      ctx.fillStyle = a > 0.72 ? "#fff8ee" : "#c49a6c";
       ctx.beginPath();
       ctx.arc(st.x, st.y, st.r * (0.6 + a * 0.7), 0, Math.PI * 2);
       ctx.fill();
       if (a > 0.9) {
         ctx.globalAlpha = (a - 0.9) * 3;
-        ctx.strokeStyle = "#f7ecd2";
+        ctx.strokeStyle = "#fff8ee";
         ctx.lineWidth = 0.5;
         ctx.beginPath();
         ctx.moveTo(st.x - st.r * 4, st.y);
@@ -739,16 +879,150 @@ function initSparks() {
   requestAnimationFrame(draw);
 }
 
+function initCutsDial() {
+  const stage = document.getElementById("cutsStage");
+  const dial = document.getElementById("cutsDial");
+  if (!stage || !dial || !CUTS.length) return;
+
+  const nameEl = document.getElementById("cutsActive");
+  const noteEl = document.getElementById("cutsNote");
+  const shopEl = document.getElementById("cutsShop");
+  const count = CUTS.length;
+  const step = 360 / count;
+  const slot = 180;
+
+  dial.insertAdjacentHTML("beforeend", CUTS.map(cutStoneHTML).join(""));
+  const stones = [...dial.querySelectorAll(".cuts-stone")];
+
+  let index = 0;
+  let angle = slot;
+  let target = slot;
+  let holding = false;
+  let timer = 0;
+
+  const radius = () => {
+    const probe = document.createElement("span");
+    probe.style.cssText = "position:absolute;width:var(--r);visibility:hidden;pointer-events:none";
+    stage.appendChild(probe);
+    const n = probe.getBoundingClientRect().width;
+    probe.remove();
+    return n * 0.93;
+  };
+  let r = radius();
+  let dragging = false;
+
+  const paintCaption = () => {
+    const cut = CUTS[index];
+    if (nameEl) nameEl.textContent = cut.name;
+    if (noteEl) noteEl.textContent = cut.note;
+    if (shopEl) shopEl.href = `jewellery.html?cut=${encodeURIComponent(cut.name)}`;
+  };
+
+  const setIndex = (next, snap = false) => {
+    index = ((next % count) + count) % count;
+    target = slot - index * step;
+    if (snap) angle = target;
+    paintCaption();
+  };
+
+  const place = () => {
+    stones.forEach((stone, i) => {
+      const theta = ((i * step + angle) * Math.PI) / 180;
+      const nx = Math.cos(theta);
+      const x = nx * r;
+      const y = Math.sin(theta) * r;
+      const onArc = nx <= 0.04;
+      stone.style.transform = `translate(${x.toFixed(2)}px, ${y.toFixed(2)}px)`;
+      stone.style.display = onArc ? "" : "none";
+      stone.style.opacity = "1";
+      stone.style.visibility = "visible";
+      stone.style.pointerEvents = onArc && i !== index ? "auto" : "none";
+      stone.classList.toggle("is-active", i === index);
+    });
+  };
+
+  const tick = () => {
+    if (!dragging) {
+      angle += (target - angle) * (REDUCED ? 1 : 0.08);
+      if (Math.abs(target - angle) < 0.02) angle = target;
+    }
+    place();
+    requestAnimationFrame(tick);
+  };
+
+  const advance = () => setIndex(index + 1);
+  const startAuto = () => {
+    if (REDUCED || holding) return;
+    clearInterval(timer);
+    timer = window.setInterval(advance, 1200);
+  };
+  const stopAuto = () => {
+    clearInterval(timer);
+    timer = 0;
+  };
+
+  stones.forEach((stone) => {
+    stone.addEventListener("click", () => {
+      setIndex(Number(stone.dataset.cutIndex));
+      stopAuto();
+      startAuto();
+    });
+  });
+
+  stage.addEventListener("pointerenter", () => { holding = true; stopAuto(); });
+  stage.addEventListener("pointerleave", () => { holding = false; startAuto(); });
+  stage.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") { e.preventDefault(); setIndex(index + 1); }
+    if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); setIndex(index - 1); }
+  });
+
+  let drag = null;
+  stage.addEventListener("pointerdown", (e) => {
+    if (e.target.closest("a")) return;
+    drag = { x: e.clientX, start: angle };
+    dragging = true;
+    holding = true;
+    stopAuto();
+    stage.setPointerCapture?.(e.pointerId);
+  });
+  stage.addEventListener("pointermove", (e) => {
+    if (!drag) return;
+    const delta = (e.clientX - drag.x) / 4;
+    const next = drag.start + delta;
+    const i = Math.round((slot - next) / step);
+    setIndex(i);
+    angle = next;
+  });
+  const endDrag = () => {
+    if (!drag) return;
+    drag = null;
+    dragging = false;
+    setIndex(index);
+    holding = false;
+    startAuto();
+  };
+  stage.addEventListener("pointerup", endDrag);
+  stage.addEventListener("pointercancel", endDrag);
+
+  window.addEventListener("resize", () => { r = radius(); place(); });
+
+  const io = new IntersectionObserver((entries) => {
+    if (entries.some((entry) => entry.isIntersecting)) startAuto();
+    else stopAuto();
+  }, { threshold: 0.25 });
+  io.observe(stage);
+
+  setIndex(0, true);
+  place();
+  requestAnimationFrame(tick);
+}
+
 function initScrollScene() {
   const progress = document.getElementById("scrollProgress");
   const header = document.getElementById("site-header");
   const toTop = document.getElementById("toTop");
   const floats = Array.from(document.querySelectorAll("[data-depth]"));
   const parallaxImgs = Array.from(document.querySelectorAll("[data-parallax]"));
-  const scroller = document.getElementById("cutsScroller");
-  const rail = document.getElementById("cutsRail");
-  const railFill = document.getElementById("cutsProgress");
-  const railLabel = document.getElementById("cutsActive");
   const stackItems = Array.from(document.querySelectorAll(".stack__item"));
   const litBlocks = Array.from(document.querySelectorAll(".reveal-words"));
   litBlocks.forEach(wrapWords);
@@ -790,22 +1064,6 @@ function initScrollScene() {
       const amount = Number(el.dataset.parallax) || 40;
       el.style.transform = `translate3d(0, ${(-t * amount).toFixed(2)}px, 0) scale(1.1)`;
     });
-
-    if (scroller && rail && window.innerWidth > 880 && !REDUCED) {
-      const top = docTop(scroller);
-      const span = scroller.offsetHeight - vh;
-      const p = clamp((y - top) / (span || 1));
-      const distance = Math.max(0, rail.scrollWidth - window.innerWidth + 32);
-      rail.style.transform = `translate3d(${(-p * distance).toFixed(2)}px, 0, 0)`;
-      if (railFill) railFill.style.setProperty("--p", p.toFixed(3));
-      if (railLabel) {
-        const index = Math.min(CUTS.length - 1, Math.floor(p * CUTS.length + 0.0001));
-        const name = CUTS[index].name;
-        if (railLabel.textContent !== name) railLabel.textContent = name;
-      }
-    } else if (rail) {
-      rail.style.transform = "";
-    }
 
     if (!REDUCED && window.innerWidth > 880) {
       stackItems.forEach((item, i) => {
@@ -1076,9 +1334,6 @@ function initHome() {
     ).join("");
   }
 
-  const rail = document.getElementById("cutsRail");
-  if (rail) rail.innerHTML = CUTS.map(cutCardHTML).join("");
-
   const best = document.getElementById("bestRail");
   if (best) {
     best.innerHTML = PRODUCTS.filter((p) => p.rating >= 4.8)
@@ -1189,6 +1444,13 @@ function initStoresPage() {
   });
 }
 
+function syncHeaderOffset() {
+  const header = document.getElementById("site-header");
+  if (!header) return;
+  const h = Math.ceil(header.getBoundingClientRect().height);
+  if (h > 0) document.documentElement.style.setProperty("--header-offset", `${h}px`);
+}
+
 /* ---------- boot ------------------------------------------ */
 function bootChrome() {
   const header = document.getElementById("site-header");
@@ -1196,6 +1458,10 @@ function bootChrome() {
     header.classList.add("site-header");
     header.innerHTML = headerHTML;
   }
+  syncHeaderOffset();
+  requestAnimationFrame(syncHeaderOffset);
+  document.fonts?.ready?.then(syncHeaderOffset);
+  window.addEventListener("resize", syncHeaderOffset);
   const footer = document.getElementById("site-footer");
   if (footer) {
     footer.classList.add("site-footer");
@@ -1402,7 +1668,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initCursor();
   initMagnetic();
   initTilt();
+  initHeroScrolly();
   initSparks();
+  initCutsDial();
   initScrollScene();
   initRails();
   bootPreloader();
