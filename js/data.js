@@ -3,7 +3,9 @@
 (() => {
 
 const IMG = (id, w = 700) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
+  /^https?:\/\//.test(id) || String(id).startsWith("assets/")
+    ? id
+    : `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
 
 /* Keys describe what is actually in the frame, so a piece never gets the
    wrong photograph. */
@@ -14,7 +16,7 @@ const SHOT = {
   roseBracelet: "1611591437281-460bfbe1220a",
   diamondBracelet: "1573408301185-9146fe634ad0",
   chainBracelet: "1602173574767-37ac01994b2a",
-  dropEarrings: "1535632787350-4e68ef0ac584",
+  dropEarrings: "assets/collections/the-cut.jpg",
   hoopEarrings: "1617038220319-276d3cfab638",
   modelNecklace: "1620656798579-1984d9e87df7",
   pendantChain: "1589128777073-263566ae5e4d",
@@ -22,7 +24,7 @@ const SHOT = {
   gemRing: "1603561591411-07134e71a2a9",
   tennisBracelet: "1619119069152-a2b331eb392a",
   ringsSet: "1608042314453-ae338d80c427",
-  ringStack: "1543294001-f7cd5d7fb516",
+  ringStack: "assets/rings/solitaire.png",
   modelNeckwear: "1600721391689-2564bb8055de",
 };
 
@@ -73,7 +75,7 @@ const COLLECTIONS = [
     name: "beYon The Cut",
     line: "Shapes that refuse the usual",
     copy: "We gave laboratory-grown diamonds room to stretch, curve and break away. Marquise, baguette, kite — each cut does something of its own.",
-    shot: SHOT.dropEarrings,
+    shot: "assets/collections/the-cut.jpg",
   },
   {
     name: "beYon Bold",

@@ -649,11 +649,17 @@ function initCursor() {
   };
   requestAnimationFrame(loop);
 
-  const hot = "a, button, .tile, .card, .cuts-stone, input, select, textarea, [data-magnetic]";
+  const hot = "a, button, .card, .cuts-stone, input, select, textarea, [data-magnetic]";
   document.addEventListener("mouseover", (e) => {
+    if (e.target.closest(".tile, .bento")) {
+      document.body.classList.add("cursor-off");
+      document.body.classList.remove("cursor-hot");
+      return;
+    }
     if (e.target.closest(hot)) document.body.classList.add("cursor-hot");
   });
   document.addEventListener("mouseout", (e) => {
+    if (e.target.closest(".tile, .bento")) document.body.classList.remove("cursor-off");
     if (e.target.closest(hot)) document.body.classList.remove("cursor-hot");
   });
 }
