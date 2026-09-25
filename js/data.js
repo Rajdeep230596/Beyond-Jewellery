@@ -1,5 +1,5 @@
 /* Catalogue data shared by the home, jewellery and collection pages.
-   Wrapped so only window.BEYON reaches the global scope. */
+   Wrapped so only window.BEZEL reaches the global scope. */
 (() => {
 
 const IMG = (id, w = 700) =>
@@ -29,30 +29,30 @@ const SHOT = {
 };
 
 const PRODUCTS = [
-  { id: "by-101", name: "Orange Peel Drop Earrings", cat: "Earrings", cut: "Marquise", coll: "beYon The Cut", karat: "18 KT", price: 48900, mrp: 56400, badge: "Selling fast", rating: 4.9, reviews: 214, shots: [SHOT.dropEarrings, SHOT.hoopEarrings] },
-  { id: "by-102", name: "Half Moon Halo Ring", cat: "Rings", cut: "Half Moon", coll: "beYon The Cut", karat: "18 KT", price: 92400, mrp: 104500, badge: "New", rating: 4.8, reviews: 96, shots: [SHOT.haloRing, SHOT.gemRing] },
-  { id: "by-103", name: "Toi et Moi Stacker", cat: "Rings", cut: "Pear", coll: "beYon Limits", karat: "14 KT", price: 41200, mrp: 47800, badge: "Only 1 left", rating: 4.7, reviews: 58, shots: [SHOT.ringStack, SHOT.ringsSet] },
-  { id: "by-104", name: "Nazar Evil Eye Pendant", cat: "Pendants", cut: "Round", coll: "beYon The Nazar", karat: "14 KT", price: 27600, mrp: 31900, badge: "Icon", rating: 4.9, reviews: 341, shots: [SHOT.goldLayered, SHOT.pendantChain] },
-  { id: "by-105", name: "Baguette Line Bracelet", cat: "Bracelets", cut: "Baguette", coll: "beYon Bold", karat: "18 KT", price: 118500, mrp: 132000, badge: "", rating: 4.8, reviews: 72, shots: [SHOT.diamondBracelet, SHOT.tennisBracelet] },
-  { id: "by-106", name: "Hexagon Hoop Earrings", cat: "Earrings", cut: "Hexagon", coll: "beYon The Cut", karat: "14 KT", price: 33800, mrp: 38400, badge: "", rating: 4.6, reviews: 129, shots: [SHOT.hoopEarrings, SHOT.dropEarrings] },
+  { id: "by-101", name: "Orange Peel Drop Earrings", cat: "Earrings", cut: "Marquise", coll: "Bezel The Cut", karat: "18 KT", price: 48900, mrp: 56400, badge: "Selling fast", rating: 4.9, reviews: 214, shots: [SHOT.dropEarrings, SHOT.hoopEarrings] },
+  { id: "by-102", name: "Half Moon Halo Ring", cat: "Rings", cut: "Half Moon", coll: "Bezel The Cut", karat: "18 KT", price: 92400, mrp: 104500, badge: "New", rating: 4.8, reviews: 96, shots: [SHOT.haloRing, SHOT.gemRing] },
+  { id: "by-103", name: "Toi et Moi Stacker", cat: "Rings", cut: "Pear", coll: "Bezel Limits", karat: "14 KT", price: 41200, mrp: 47800, badge: "Only 1 left", rating: 4.7, reviews: 58, shots: [SHOT.ringStack, SHOT.ringsSet] },
+  { id: "by-104", name: "Nazar Evil Eye Pendant", cat: "Pendants", cut: "Round", coll: "Bezel The Nazar", karat: "14 KT", price: 27600, mrp: 31900, badge: "Icon", rating: 4.9, reviews: 341, shots: [SHOT.goldLayered, SHOT.pendantChain] },
+  { id: "by-105", name: "Baguette Line Bracelet", cat: "Bracelets", cut: "Baguette", coll: "Bezel Bold", karat: "18 KT", price: 118500, mrp: 132000, badge: "", rating: 4.8, reviews: 72, shots: [SHOT.diamondBracelet, SHOT.tennisBracelet] },
+  { id: "by-106", name: "Hexagon Hoop Earrings", cat: "Earrings", cut: "Hexagon", coll: "Bezel The Cut", karat: "14 KT", price: 33800, mrp: 38400, badge: "", rating: 4.6, reviews: 129, shots: [SHOT.hoopEarrings, SHOT.dropEarrings] },
   { id: "by-107", name: "Infinite Love Mangalsutra", cat: "Mangalsutra", cut: "Round", coll: "InfiniteLove", karat: "18 KT", price: 64300, mrp: 72900, badge: "Bestseller", rating: 5.0, reviews: 188, shots: [SHOT.modelNeckwear, SHOT.pendantChain] },
-  { id: "by-108", name: "Emerald Cut Eternity Band", cat: "Rings", cut: "Emerald", coll: "beYon Basics", karat: "18 KT", price: 87200, mrp: 96000, badge: "", rating: 4.9, reviews: 143, shots: [SHOT.gemRing, SHOT.haloRing] },
-  { id: "by-109", name: "Kite Sway Neckwear", cat: "Neckwear", cut: "Kite", coll: "beYon Bold", karat: "18 KT", price: 154000, mrp: 168000, badge: "Atelier", rating: 4.8, reviews: 41, shots: [SHOT.goldLayered, SHOT.modelNecklace] },
-  { id: "by-110", name: "Trillion Nosepin", cat: "Nosepins", cut: "Trillion", coll: "beYon Basics", karat: "9 KT", price: 12400, mrp: 14600, badge: "Everyday", rating: 4.7, reviews: 262, shots: [SHOT.ringsSet, SHOT.ringStack] },
-  { id: "by-111", name: "Cushion Glow Bangle", cat: "Bangles", cut: "Cushion", coll: "beYon Limits", karat: "14 KT", price: 76800, mrp: 85200, badge: "", rating: 4.6, reviews: 64, shots: [SHOT.banglesHands, SHOT.roseBracelet] },
-  { id: "by-112", name: "Oval Orbit Pendant & Chain", cat: "Pendants", cut: "Oval", coll: "beYon Basics", karat: "14 KT", price: 38900, mrp: 44100, badge: "", rating: 4.8, reviews: 156, shots: [SHOT.pendantChain, SHOT.goldLayered] },
-  { id: "by-113", name: "Princess Duet Earrings", cat: "Earrings", cut: "Princess", coll: "beYon Limits", karat: "18 KT", price: 57400, mrp: 64800, badge: "Just dropped", rating: 4.9, reviews: 83, shots: [SHOT.dropEarrings, SHOT.hoopEarrings] },
-  { id: "by-114", name: "Marquise Flame Solitaire", cat: "Solitaires", cut: "Marquise", coll: "beYon The Cut", karat: "18 KT", price: 214000, mrp: 236000, badge: "1.2 ct", rating: 5.0, reviews: 37, shots: [SHOT.gemRing, SHOT.haloRing] },
+  { id: "by-108", name: "Emerald Cut Eternity Band", cat: "Rings", cut: "Emerald", coll: "Bezel Basics", karat: "18 KT", price: 87200, mrp: 96000, badge: "", rating: 4.9, reviews: 143, shots: [SHOT.gemRing, SHOT.haloRing] },
+  { id: "by-109", name: "Kite Sway Neckwear", cat: "Neckwear", cut: "Kite", coll: "Bezel Bold", karat: "18 KT", price: 154000, mrp: 168000, badge: "Atelier", rating: 4.8, reviews: 41, shots: [SHOT.goldLayered, SHOT.modelNecklace] },
+  { id: "by-110", name: "Trillion Nosepin", cat: "Nosepins", cut: "Trillion", coll: "Bezel Basics", karat: "9 KT", price: 12400, mrp: 14600, badge: "Everyday", rating: 4.7, reviews: 262, shots: [SHOT.ringsSet, SHOT.ringStack] },
+  { id: "by-111", name: "Cushion Glow Bangle", cat: "Bangles", cut: "Cushion", coll: "Bezel Limits", karat: "14 KT", price: 76800, mrp: 85200, badge: "", rating: 4.6, reviews: 64, shots: [SHOT.banglesHands, SHOT.roseBracelet] },
+  { id: "by-112", name: "Oval Orbit Pendant & Chain", cat: "Pendants", cut: "Oval", coll: "Bezel Basics", karat: "14 KT", price: 38900, mrp: 44100, badge: "", rating: 4.8, reviews: 156, shots: [SHOT.pendantChain, SHOT.goldLayered] },
+  { id: "by-113", name: "Princess Duet Earrings", cat: "Earrings", cut: "Princess", coll: "Bezel Limits", karat: "18 KT", price: 57400, mrp: 64800, badge: "Just dropped", rating: 4.9, reviews: 83, shots: [SHOT.dropEarrings, SHOT.hoopEarrings] },
+  { id: "by-114", name: "Marquise Flame Solitaire", cat: "Solitaires", cut: "Marquise", coll: "Bezel The Cut", karat: "18 KT", price: 214000, mrp: 236000, badge: "1.2 ct", rating: 5.0, reviews: 37, shots: [SHOT.gemRing, SHOT.haloRing] },
   { id: "by-115", name: "Heart Whisper Hoops", cat: "Earrings", cut: "Heart", coll: "InfiniteLove", karat: "14 KT", price: 29600, mrp: 34200, badge: "", rating: 4.7, reviews: 201, shots: [SHOT.hoopEarrings, SHOT.ringsSet] },
-  { id: "by-116", name: "Round Brilliance Necklace", cat: "Necklace", cut: "Round", coll: "beYon Bold", karat: "18 KT", price: 186500, mrp: 202000, badge: "", rating: 4.9, reviews: 52, shots: [SHOT.pearlNecklace, SHOT.modelNeckwear] },
-  { id: "by-117", name: "Pear Cascade Bracelet", cat: "Bracelets", cut: "Pear", coll: "beYon The Cut", karat: "14 KT", price: 68900, mrp: 77400, badge: "Selling fast", rating: 4.8, reviews: 118, shots: [SHOT.roseBracelet, SHOT.chainBracelet] },
-  { id: "by-118", name: "Silver Nazar Charm Bracelet", cat: "Silver", cut: "Round", coll: "beYon The Nazar", karat: "Silver", price: 8900, mrp: 10900, badge: "Under ₹10k", rating: 4.5, reviews: 388, shots: [SHOT.tennisBracelet, SHOT.diamondBracelet] },
-  { id: "by-119", name: "Multi Facet Cocktail Ring", cat: "Rings", cut: "Cushion", coll: "beYon Bold", karat: "18 KT", price: 132700, mrp: 146500, badge: "Multi facet", rating: 4.9, reviews: 29, shots: [SHOT.gemRing, SHOT.ringStack] },
-  { id: "by-120", name: "Baguette Bar Pendant", cat: "Pendants", cut: "Baguette", coll: "beYon Basics", karat: "9 KT", price: 21400, mrp: 25100, badge: "", rating: 4.6, reviews: 174, shots: [SHOT.pendantChain, SHOT.modelNecklace] },
+  { id: "by-116", name: "Round Brilliance Necklace", cat: "Necklace", cut: "Round", coll: "Bezel Bold", karat: "18 KT", price: 186500, mrp: 202000, badge: "", rating: 4.9, reviews: 52, shots: [SHOT.pearlNecklace, SHOT.modelNeckwear] },
+  { id: "by-117", name: "Pear Cascade Bracelet", cat: "Bracelets", cut: "Pear", coll: "Bezel The Cut", karat: "14 KT", price: 68900, mrp: 77400, badge: "Selling fast", rating: 4.8, reviews: 118, shots: [SHOT.roseBracelet, SHOT.chainBracelet] },
+  { id: "by-118", name: "Silver Nazar Charm Bracelet", cat: "Silver", cut: "Round", coll: "Bezel The Nazar", karat: "Silver", price: 8900, mrp: 10900, badge: "Under ₹10k", rating: 4.5, reviews: 388, shots: [SHOT.tennisBracelet, SHOT.diamondBracelet] },
+  { id: "by-119", name: "Multi Facet Cocktail Ring", cat: "Rings", cut: "Cushion", coll: "Bezel Bold", karat: "18 KT", price: 132700, mrp: 146500, badge: "Multi facet", rating: 4.9, reviews: 29, shots: [SHOT.gemRing, SHOT.ringStack] },
+  { id: "by-120", name: "Baguette Bar Pendant", cat: "Pendants", cut: "Baguette", coll: "Bezel Basics", karat: "9 KT", price: 21400, mrp: 25100, badge: "", rating: 4.6, reviews: 174, shots: [SHOT.pendantChain, SHOT.modelNecklace] },
   { id: "by-121", name: "Emerald Drop Neckwear", cat: "Neckwear", cut: "Emerald", coll: "InfiniteLove", karat: "18 KT", price: 96400, mrp: 108200, badge: "", rating: 4.8, reviews: 66, shots: [SHOT.modelNecklace, SHOT.goldLayered] },
-  { id: "by-122", name: "Oval Sculpt Bangle", cat: "Bangles", cut: "Oval", coll: "beYon Bold", karat: "18 KT", price: 141200, mrp: 156000, badge: "", rating: 4.7, reviews: 33, shots: [SHOT.chainBracelet, SHOT.banglesHands] },
-  { id: "by-123", name: "Trillion Stack Trio", cat: "Rings", cut: "Trillion", coll: "beYon Limits", karat: "14 KT", price: 52300, mrp: 59800, badge: "Stackable", rating: 4.8, reviews: 91, shots: [SHOT.ringStack, SHOT.ringsSet] },
-  { id: "by-124", name: "Princess Solitaire Ring", cat: "Solitaires", cut: "Princess", coll: "beYon Basics", karat: "18 KT", price: 108600, mrp: 119400, badge: "Certified", rating: 4.9, reviews: 77, shots: [SHOT.haloRing, SHOT.gemRing] },
+  { id: "by-122", name: "Oval Sculpt Bangle", cat: "Bangles", cut: "Oval", coll: "Bezel Bold", karat: "18 KT", price: 141200, mrp: 156000, badge: "", rating: 4.7, reviews: 33, shots: [SHOT.chainBracelet, SHOT.banglesHands] },
+  { id: "by-123", name: "Trillion Stack Trio", cat: "Rings", cut: "Trillion", coll: "Bezel Limits", karat: "14 KT", price: 52300, mrp: 59800, badge: "Stackable", rating: 4.8, reviews: 91, shots: [SHOT.ringStack, SHOT.ringsSet] },
+  { id: "by-124", name: "Princess Solitaire Ring", cat: "Solitaires", cut: "Princess", coll: "Bezel Basics", karat: "18 KT", price: 108600, mrp: 119400, badge: "Certified", rating: 4.9, reviews: 77, shots: [SHOT.haloRing, SHOT.gemRing] },
 ];
 
 const CUTS = [
@@ -72,25 +72,25 @@ const CUTS = [
 
 const COLLECTIONS = [
   {
-    name: "beYon The Cut",
+    name: "Bezel The Cut",
     line: "Shapes that refuse the usual",
     copy: "We gave laboratory-grown diamonds room to stretch, curve and break away. Marquise, baguette, kite — each cut does something of its own.",
     shot: "assets/collections/the-cut.jpg",
   },
   {
-    name: "beYon Bold",
+    name: "Bezel Bold",
     line: "Gold turned all the way up",
     copy: "Heavier metal, unexpected stone placements and silhouettes built to be noticed from across the room. Playing it safe is not really our thing.",
     shot: SHOT.diamondBracelet,
   },
   {
-    name: "beYon Limits",
+    name: "Bezel Limits",
     line: "Stack as far as you like",
     copy: "Wear as much or as little as you want. Stack the bracelets, swap the rings, layer the earrings — the only limit is how far you go.",
     shot: SHOT.ringStack,
   },
   {
-    name: "beYon The Nazar",
+    name: "Bezel The Nazar",
     line: "A little luck, a lot of shine",
     copy: "The evil eye reimagined in laboratory-grown diamonds and enamel. Protective, playful and impossible to take off.",
     shot: SHOT.goldLayered,
@@ -162,6 +162,6 @@ const STORES = [
   { city: "Pune", area: "Koregaon Park Plaza", hours: "11 AM – 9 PM", note: "Opening soon", shot: SHOT.dropEarrings },
 ];
 
-window.BEYON = { IMG, SHOT, PRODUCTS, CUTS, COLLECTIONS, CATEGORY_TILES, TESTIMONIALS, FAQS, STORES };
+window.BEZEL = { IMG, SHOT, PRODUCTS, CUTS, COLLECTIONS, CATEGORY_TILES, TESTIMONIALS, FAQS, STORES };
 
 })();

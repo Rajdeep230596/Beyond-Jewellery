@@ -55,5 +55,5 @@ const server = createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`\n  beYon dev server running\n  http://localhost:${PORT}/index.html\n`);
+  console.log(`\n  Bezel dev server running\n  http://localhost:${PORT}/index.html\n`);
 });

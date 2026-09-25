@@ -1,15 +1,15 @@
 /* ============================================================
-   beYon — shared chrome, commerce state and motion engine
+   Bezel — shared chrome, commerce state and motion engine
    ============================================================ */
 
-const { IMG, SHOT, PRODUCTS, CUTS, COLLECTIONS, CATEGORY_TILES, TESTIMONIALS, FAQS } = window.BEYON;
+const { IMG, SHOT, PRODUCTS, CUTS, COLLECTIONS, CATEGORY_TILES, TESTIMONIALS, FAQS } = window.BEZEL;
 
 const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const USD_RATE = 83;
 const STORE = {
-  cart: "beyon:cart",
-  wish: "beyon:wishlist",
-  cur: "beyon:currency",
+  cart: "bezel:cart",
+  wish: "bezel:wishlist",
+  cur: "bezel:currency",
 };
 
 const read = (key, fallback) => {
@@ -63,7 +63,7 @@ const headerHTML = `
     </div>
   </div>
   <div class="nav-wrap">
-    <a class="logo" href="index.html" aria-label="beYon home">
+    <a class="logo" href="index.html" aria-label="Bezel home">
       <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
         <defs><linearGradient id="lm" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stop-color="#c49a6c"/><stop offset=".55" stop-color="#8b5a2b"/><stop offset="1" stop-color="#6b3f1f"/>
@@ -71,7 +71,7 @@ const headerHTML = `
         <path d="M20 22h24l-12 24z" fill="url(#lm)"/>
         <path d="M15 22l5-6h24l5 6" fill="none" stroke="url(#lm)" stroke-width="2.2" stroke-linejoin="round"/>
       </svg>
-      <span class="logo-text"><b>be</b><i>Yon</i></span>
+      <span class="logo-text"><b>Bez</b><i>el</i></span>
     </a>
     <nav aria-label="Primary">
       <ul class="nav-links" id="navLinks">
@@ -112,8 +112,8 @@ const headerHTML = `
                 </ul>
               </div>
               <a class="mega__promo" href="collections.html">
-                <img src="${IMG(SHOT.diamondBracelet, 600)}" alt="beYon Bold collection" loading="lazy">
-                <figcaption>beYon Bold</figcaption>
+                <img src="${IMG(SHOT.diamondBracelet, 600)}" alt="Bezel Bold collection" loading="lazy">
+                <figcaption>Bezel Bold</figcaption>
               </a>
             </div>
           </div>
@@ -125,10 +125,10 @@ const headerHTML = `
               <div>
                 <h5>Collection</h5>
                 <ul>
-                  <li><a href="collections.html#beyon-the-cut">beYon The Cut</a></li>
-                  <li><a href="collections.html#beyon-bold">beYon Bold</a></li>
-                  <li><a href="collections.html#beyon-limits">beYon Limits</a></li>
-                  <li><a href="collections.html#beyon-the-nazar">beYon The Nazar</a></li>
+                  <li><a href="collections.html#bezel-the-cut">Bezel The Cut</a></li>
+                  <li><a href="collections.html#bezel-bold">Bezel Bold</a></li>
+                  <li><a href="collections.html#bezel-limits">Bezel Limits</a></li>
+                  <li><a href="collections.html#bezel-the-nazar">Bezel The Nazar</a></li>
                   <li><a href="collections.html#infinitelove">InfiniteLove</a></li>
                 </ul>
               </div>
@@ -144,7 +144,7 @@ const headerHTML = `
               <div>
                 <h5>Learn</h5>
                 <ul>
-                  <li><a href="facts.html">beYon facts</a></li>
+                  <li><a href="facts.html">Bezel facts</a></li>
                   <li><a href="facts.html#compare">Grown vs mined</a></li>
                   <li><a href="facts.html#faq">Help &amp; FAQs</a></li>
                   <li><a href="stores.html">Find a store</a></li>
@@ -157,7 +157,7 @@ const headerHTML = `
             </div>
           </div>
         </li>
-        <li><a href="facts.html">beYon Facts</a></li>
+        <li><a href="facts.html">Bezel Facts</a></li>
         <li><a href="stores.html">Stores</a></li>
       </ul>
     </nav>
@@ -182,7 +182,7 @@ const mobileNavHTML = `
     <a href="index.html">Home</a>
     <a href="jewellery.html">Jewellery</a>
     <a href="collections.html">Collections</a>
-    <a href="facts.html">beYon Facts</a>
+    <a href="facts.html">Bezel Facts</a>
     <a href="stores.html">Stores</a>
     <a href="jewellery.html?sort=new">Just dropped</a>
     <div class="mobile-nav__foot">
@@ -196,7 +196,7 @@ const footerHTML = `
   <div class="container">
     <div class="footer-grid">
       <div>
-        <h4>beYon</h4>
+        <h4>Bezel</h4>
         <p>Laboratory-grown diamond jewellery from the House of Titan. Created with human ingenuity, designed for everyday desire and worn without rules.</p>
         <div class="footer-socials">
           <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg></a>
@@ -219,7 +219,7 @@ const footerHTML = `
       <div>
         <h4>Information</h4>
         <ul>
-          <li><a href="facts.html">beYon facts (about LGD)</a></li>
+          <li><a href="facts.html">Bezel facts (about LGD)</a></li>
           <li><a href="collections.html">Collections</a></li>
           <li><a href="facts.html#faq">Help &amp; FAQs</a></li>
           <li><a href="facts.html#care">Care &amp; cleaning</a></li>
@@ -233,11 +233,11 @@ const footerHTML = `
           <li><a href="facts.html#faq">Delivery information</a></li>
           <li><a href="facts.html#faq">Returns</a></li>
           <li><a href="tel:18002660123">1800 · 266 · 0123</a></li>
-          <li><a href="mailto:care@beyon.co.in">care@beyon.co.in</a></li>
+          <li><a href="mailto:care@bezel.co.in">care@bezel.co.in</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-wordmark" aria-hidden="true">beYon</div>
+    <div class="footer-wordmark" aria-hidden="true">Bezel</div>
     <div class="copyright">
       <span>© ${new Date().getFullYear()} Titan Company Limited. All rights reserved.</span>
       <span>No exchange on laboratory-grown diamonds · 100%* exchange on gold at prevailing rate</span>
@@ -1398,7 +1398,7 @@ function initCollectionsPage() {
           <div class="split-2" style="margin-bottom:clamp(2rem,4vw,3.5rem)">
             <div>
               <p class="kicker" data-reveal>Collection ${String(i + 1).padStart(2, "0")}</p>
-              <h2 data-split>${c.name.replace("beYon ", "beYon<br>")}</h2>
+              <h2 data-split>${c.name.replace("Bezel ", "Bezel<br>")}</h2>
               <p class="lede" data-reveal data-delay="140" style="margin-top:1.3rem">${c.copy}</p>
               <a class="link-arrow" href="jewellery.html?coll=${encodeURIComponent(c.name)}" style="margin-top:2rem" data-reveal>
                 Shop ${c.name} ${ICON.arrowR}
@@ -1418,12 +1418,12 @@ function initCollectionsPage() {
 function initStoresPage() {
   const grid = document.getElementById("storeGrid");
   if (!grid) return;
-  const { STORES } = window.BEYON;
+  const { STORES } = window.BEZEL;
 
   grid.innerHTML = STORES.map(
     (s, i) => `
     <article class="store-card" data-reveal data-delay="${i * 70}" data-city="${s.city} ${s.area}">
-      <span class="media"><img src="${IMG(s.shot, 700)}" alt="beYon ${s.city}" loading="lazy"></span>
+      <span class="media"><img src="${IMG(s.shot, 700)}" alt="Bezel ${s.city}" loading="lazy"></span>
       <div class="store-card__body">
         <p class="store-card__tag">${s.note}</p>
         <h3>${s.city}</h3>
